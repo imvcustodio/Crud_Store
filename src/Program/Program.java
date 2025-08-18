@@ -1,11 +1,6 @@
 package Program;
-
-import entities.ContaLuz;
 import entities.ListaConta;
-
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -52,10 +47,7 @@ public class Program {
                             break;
 
                     }
-                }catch(InputMismatchException e){
-                    System.out.println("entrada invalida");
-                    break;
-                }catch(ParseException e){
+                }catch(InputMismatchException | ParseException e){
                     System.out.println("entrada invalida");
                     break;
                 }
