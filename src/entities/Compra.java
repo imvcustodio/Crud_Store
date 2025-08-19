@@ -56,7 +56,7 @@ public class Compra {
             }
 
 
-            System.out.println("Qual a quantidade do produto por mes em media: ");
+            System.out.println("Qual a quantidade em ["+ produto.getUnidade() +"] produto por mes em media: ");
             int mesQuantity = scanner.nextInt();
 
             System.out.println("Qual a quantidade do produto na compra: ");

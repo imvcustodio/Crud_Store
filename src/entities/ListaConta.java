@@ -45,7 +45,7 @@ public class ListaConta {
 
         for (ContaLuz c : contaLuz) {
             if (c.getDataLeitura().equals(dataVerificacaoformated)) {
-                System.out.println("conta encontrada esta aqui a sua via: " + c);
+                System.out.println("Conta encontrada esta aqui a sua via: " + c);
                 break;
             }
         }

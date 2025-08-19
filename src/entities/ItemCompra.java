@@ -63,7 +63,7 @@ public class ItemCompra {
     public String toString(){
         return "Nome Produto: " + this.produto.getNome()
                 +"\nUnidade: " + this.produto.getUnidade().toString()
-                +"\nQuantidade Mes: "+this.mesQuantity
+                +"\nQuantidade Mes: "+this.mesQuantity +"["+this.produto.getUnidade()+"]"
                 +"\nQuantidade Compra: "+this.compraQuantity
                 +"\nPreço estimado Unidade: R$"+this.price
                 + "\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-";
