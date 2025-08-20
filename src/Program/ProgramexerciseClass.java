@@ -16,11 +16,11 @@ public class ProgramexerciseClass {
                 do {
                     try{
                         System.out.println("-=-=-=-=-=-=- Menu Opções -=-=-=-=-=-=-");
-                        System.out.println("1 adicionar novo produto");
-                        System.out.println("2 Listar produtos");
-                        System.out.println("3 Remover Produto");
-                        System.out.println("4 atualizar produto");
-                        System.out.println("5 Sair");
+                        System.out.println("[1] adicionar novo produto");
+                        System.out.println("[2] Listar produtos");
+                        System.out.println("[3] Remover Produto");
+                        System.out.println("[4] atualizar produto");
+                        System.out.println("[5] Sair");
                         System.out.println("Opção desejada: ");
                         int option = scanner.nextInt();
                         switch (option) {
