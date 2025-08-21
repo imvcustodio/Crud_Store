@@ -12,7 +12,6 @@ public class ReservaMes {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     public Funcionario addFuncionario() {
-        int setorFuncionario = 0;
         System.out.println("Qual o nome do funcionario responsavel pela reserva: ");
         String nomeFuncionario = scanner.nextLine();
         System.out.println("Ramal: ");
@@ -26,6 +25,9 @@ public class ReservaMes {
         System.out.println("DIRETORIA [1]");
         System.out.println("DESENVOLVIMENTO [2]");
         System.out.println("SUPORTE [3]");
+        System.out.println("QUAL O SETOR: ");
+        int setorFuncionario = scanner.nextInt();
+        scanner.nextLine();
         switch (setorFuncionario){
             case 1:
                 funcionario.setSetorFuncionario(Setor.DIRETORIA);
@@ -41,7 +43,7 @@ public class ReservaMes {
     }
 
     public void realizarReserva(){
-        addFuncionario();
+        Funcionario funcionario = addFuncionario();
         System.out.println("-=-=-=-=-=-=-=-=-");
         System.out.println("Qual o horario de inicio da Reuniao: (dd-MM-yyyy HH:mm:ss) ");
         String horarioInicio = scanner.nextLine();
@@ -53,27 +55,29 @@ public class ReservaMes {
         System.out.println("-=-=-=-=-=-=-=-=-");
         System.out.println("Qual a capacidade de pessoas da sala: ");
         int quantidadePessoasSala = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Qual o numero da sala: ");
         int numeroSala = scanner.nextInt();
+        scanner.nextLine();
         SalaReuniao sala = new SalaReuniao(quantidadePessoasSala, numeroSala);
         System.out.println("-=-=-=-=-=-=-=-=-");
 
         Reserva reserva = new Reserva(dataHoraInicio, dataHoraFim, sala);
+        reserva.addFuncionario(funcionario);
         boolean resposta = true;
         do {
             System.out.println("Gostaria de adicionar mais 1 funcionario para esta reserva: ");
             System.out.println("Sim [1]");
             System.out.println("Não [2]");
             System.out.println("Opção: ");
-            switch (scanner.nextInt()) {
-                case 1:
-                    Funcionario funcionario = addFuncionario();
-                    reserva.addFuncionario(funcionario);
-                   break;
-                case 2:
-                    resposta = false;
-                    break;
-            }
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
+            if(opcao == 1){
+                    Funcionario funcionarioAdd = addFuncionario();
+                    reserva.addFuncionario(funcionarioAdd);
+            }else if(opcao == 2){
+                resposta = false;
+            }else System.out.println("Opção invalida!");
 
         }while(resposta);
 
