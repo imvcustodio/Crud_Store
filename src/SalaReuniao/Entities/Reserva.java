@@ -41,13 +41,13 @@ public class Reserva {
     }
 
 
-    public void setDataInicioReuniao(LocalDateTime dataReservaInicio,  LocalDateTime dataReservaFim) {
+    public void setDataInicioReuniao(LocalDateTime dataReservaInicio,  LocalDateTime dataReservaFim) throws IllegalArgumentException {
         if (dataReservaInicio == null || dataReservaInicio.isAfter(dataReservaFim))
             throw new IllegalArgumentException("Horario de inicio da reunião não pode ser depois do Fim!");
         this.dataReservaInicio = dataReservaInicio;
     }
 
-    public void setDataReservaFim(LocalDateTime dataReservaFim,  LocalDateTime dataReservaInicio) {
+    public void setDataReservaFim(LocalDateTime dataReservaFim,  LocalDateTime dataReservaInicio) throws  IllegalArgumentException {
         if (dataReservaFim == null || dataReservaFim.isBefore(dataReservaInicio))
             throw new IllegalArgumentException("Horario que a reuniao acaba não pode ser antes do inicio da reuniao!");
         this.dataReservaFim = dataReservaFim;
@@ -63,6 +63,11 @@ public class Reserva {
         }
         return "";
     }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
     public SalaReuniao getSalaReuniao() {
         return salaReuniao;
     }
@@ -73,8 +78,8 @@ public class Reserva {
                 "ID da reunião: "+getId()+"\n"+
                 "Data e Hora inicio da reuniao: "+dataReservaInicio.format(customFormatter)+
                 ", Data e Hora fim: "+dataReservaFim.format(customFormatter)+"\n"
-                +"Número da Sala"+salaReuniao.getNumeroSala()+"\n"
-                +"Capacidade da sala" +salaReuniao.getQuantidadeLugares();
+                +"Número da Sala: "+salaReuniao.getNumeroSala()+"\n"
+                +"Capacidade da sala: " +salaReuniao.getQuantidadeLugares();
     }
 
 

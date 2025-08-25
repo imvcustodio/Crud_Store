@@ -88,7 +88,6 @@ public class ReservaMes {
                 }
             }
 
-
         System.out.println("Qual o horario de inicio da Reuniao: (dd-MM-yyyy HH:mm:ss) ");
         String horarioInicio = scanner.nextLine();
         LocalDateTime dataHoraInicio = LocalDateTime.parse(horarioInicio, formatter);
@@ -110,8 +109,9 @@ public class ReservaMes {
         boolean time = veryfyTime(dataHoraInicio, dataHoraFim, numeroSala);
         boolean validMeet = false;
         Reserva reserva = null;
+
         while (!validMeet){
-             if (time){
+            if (time){
                 reserva = new Reserva(ID,dataHoraInicio, dataHoraFim, sala);
                 validMeet = true;
             }else {
@@ -129,7 +129,6 @@ public class ReservaMes {
         }
         System.out.println("-=-=-=-=-=-=-=-=-");
 
-
         reserva.addFuncionario(funcionario);
         boolean resposta = true;
         do {
@@ -140,22 +139,29 @@ public class ReservaMes {
             int opcao = scanner.nextInt();
             scanner.nextLine();
             if(opcao == 1){
+                if (reserva.getFuncionarios().size()<quantidadePessoasSala) {
                     Funcionario funcionarioAdd = addFuncionario();
                     reserva.addFuncionario(funcionarioAdd);
+                }else {
+                    System.out.println("A sala ja atingiu seu limite de ocupantes");
+                    resposta = false;
+                }
             }else if(opcao == 2){
                 resposta = false;
             }else System.out.println("Opção invalida!");
 
-        }while(resposta);
+        }while(resposta && reserva.getFuncionarios().size()<quantidadePessoasSala);
 
 
         listaDeReservas.add(reserva);
     }
+
     public void mostrarReservas(){
         for (Reserva reserva : listaDeReservas) {
             System.out.println(reserva.toString());
         }
     }
+
     public void alterarReserva(){
         System.out.println("Informe o Id da Reserva que deseja alterar: ");
         int ID = scanner.nextInt();
@@ -196,9 +202,12 @@ public class ReservaMes {
                         System.out.println("ID da reserva alterada com sucesso!");
                         break;
                     case 3:
-                        Funcionario novoFuncionarioReuniao = addFuncionario();
-                        reserva.addFuncionario(novoFuncionarioReuniao);
-                        break;
+                        if (reserva.getSalaReuniao().getQuantidadeLugares()<reserva.getFuncionarios().size()){
+                            Funcionario novoFuncionarioReuniao = addFuncionario();
+                            reserva.addFuncionario(novoFuncionarioReuniao);
+                            break;
+                        }System.out.println("A sala ja esta cheia!");
+
                 }
             }
         }
