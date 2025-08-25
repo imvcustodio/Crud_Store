@@ -19,4 +19,11 @@ public class SalaReuniao {
                 this.quantidadeLugares = quantidadeLugares;
         }
     }
+    public int getQuantidadeLugares() {
+        return quantidadeLugares;
+    }
+    public int getNumeroSala() {
+        return numeroSala;
+    }
+
 }

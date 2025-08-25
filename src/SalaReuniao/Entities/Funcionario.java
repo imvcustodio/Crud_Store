@@ -37,17 +37,12 @@ public class Funcionario {
             throw new IllegalArgumentException("Setor deste funcionario é invalido!");
         this.setorFuncionario = setorFuncionario;
     }
-    public void setCargoFuncionario(Cargo cargoFuncionario) {
-        this.cargoFuncionario = cargoFuncionario;
-    }
-    public Cargo getCargoFuncionario() {
-        return cargoFuncionario;
-    }
 
-    public String Exibirfuncionario() {
+
+    public String exibirfuncionario() {
         return "Nome: "+nome+"\n"+
                 "Ramal: "+ramalFuncionario+"\n"+
                 "Setor: "+ getSetorFuncionario() + "\n" +
-                "Cargo: "+ getCargoFuncionario();
+                "Cargo: "+ cargoFuncionario.getNomeCargo();
     }
 }

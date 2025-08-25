@@ -10,7 +10,7 @@ public class Cargo {
         setNomeCargo(nomeCargo);
     }
     public void setNomeCargo(String nomeCargo) {
-        if (nomeCargo == null || nomeCargo.trim().isEmpty())//
+        if (nomeCargo == null || nomeCargo.trim().isEmpty())
             throw new IllegalArgumentException("O nome não pode ser nulo ou vazio.");
         this.nomeCargo = nomeCargo.trim();
     }
