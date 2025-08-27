@@ -26,7 +26,7 @@ public class ReservaMes {
 
         Funcionario funcionario = new Funcionario(nomeFuncionario, ramal, cargo);
 
-        System.out.println("Setor do Funcionario: ");
+        System.out.println("SETOR DO FUNCIONARIO: ");
         System.out.println("DIRETORIA [1]");
         System.out.println("DESENVOLVIMENTO [2]");
         System.out.println("SUPORTE [3]");
@@ -57,9 +57,7 @@ public class ReservaMes {
                             timeStart.isBefore(reserva.getDataReservaInicio()) && timeEnd.isAfter(reserva.getDataReservaFim()) ||
                             timeStart.isAfter(reserva.getDataReservaInicio()) && timeStart.isBefore(reserva.getDataReservaFim())||
                             timeStart.isAfter(reserva.getDataReservaInicio()) && timeEnd.isBefore(reserva.getDataReservaFim())
-                    ){
-                        return false; // conflito
-                    }
+                    ){return false;} // conflito
 
                 }
             }
@@ -69,6 +67,7 @@ public class ReservaMes {
 
     public SalaReuniao criarSala(){
         System.out.println("Qual a capacidade de pessoas da sala: ");
+
         int quantidadePessoasSala = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Qual o numero da sala: ");
