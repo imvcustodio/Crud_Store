@@ -71,6 +71,11 @@ public class Reserva {
     public SalaReuniao getSalaReuniao() {
         return salaReuniao;
     }
+    public void setSalaReuniao(SalaReuniao salaReuniao)throws IllegalArgumentException {
+        if (salaReuniao == null) {
+            throw new IllegalArgumentException("A nova sala a ser criada esta nula");
+        }this.salaReuniao = salaReuniao;
+    }
 
     @Override
     public String toString() {

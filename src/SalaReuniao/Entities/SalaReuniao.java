@@ -3,6 +3,7 @@ package SalaReuniao.Entities;
 public class SalaReuniao {
     private int quantidadeLugares;
     private int numeroSala;
+    //tentar implementar a lista de horarios ideia bernardo
 
     public SalaReuniao(int quantidadeLugares, int numeroSala) {
         setQuantidadeLugares(quantidadeLugares);
