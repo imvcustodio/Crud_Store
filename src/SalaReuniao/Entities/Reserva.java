@@ -81,8 +81,8 @@ public class Reserva {
     public String toString() {
         return listarFuncionarios()+"\n"+
                 "ID da reunião: "+getId()+"\n"+
-                "Data e Hora inicio da reuniao: "+dataReservaInicio.format(customFormatter)+
-                ", Data e Hora fim: "+dataReservaFim.format(customFormatter)+"\n"
+                "Data e Horario inicial da reuniao: "+dataReservaInicio.format(customFormatter)+"\n"+
+                "Data e Horario de encerramento da reuniao : "+dataReservaFim.format(customFormatter)+"\n"
                 +"Número da Sala: "+salaReuniao.getNumeroSala()+"\n"
                 +"Capacidade da sala: " +salaReuniao.getQuantidadeLugares();
     }
